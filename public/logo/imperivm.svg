@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 200" fill="none" role="img" aria-label="Imperivm">
+  <defs>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- emblema atomico (motivo cuantico) -->
+  <g transform="translate(100,100)" stroke="#5eead4" stroke-width="2.4" filter="url(#glow)">
+    <ellipse rx="46" ry="17" fill="none" stroke-opacity="0.9"/>
+    <ellipse rx="46" ry="17" fill="none" stroke-opacity="0.9" transform="rotate(60)"/>
+    <ellipse rx="46" ry="17" fill="none" stroke-opacity="0.9" transform="rotate(120)"/>
+    <circle r="7.5" fill="#aef7ec" stroke="none"/>
+    <circle cx="46" cy="0" r="3.6" fill="#5eead4" stroke="none"/>
+    <circle cx="-23" cy="39.8" r="3.6" fill="#5eead4" stroke="none" transform="rotate(60)"/>
+    <circle cx="-23" cy="-39.8" r="3.6" fill="#5eead4" stroke="none" transform="rotate(120)"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="185" y="132"
+        font-family="Fraunces, Georgia, 'Times New Roman', serif"
+        font-size="96" font-weight="700" letter-spacing="6"
+        fill="#e6edf3">IMPERIVM</text>
+
+  <!-- keyline de instrumento -->
+  <line x1="187" y1="150" x2="372" y2="150" stroke="#5eead4" stroke-width="2" stroke-opacity="0.55"/>
+</svg>

@@ -1,0 +1,200 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0e14;
+  --color-panel: #0f141c;
+  --color-panel-2: #11181f;
+  --color-line: #1c2530;
+  --color-ink: #e6edf3;
+  --color-muted: #7d8694;
+  --color-signal: #5eead4;
+  --color-signal-dim: #2f6f66;
+  --color-alert: #f5a623;
+  --color-danger: #ff6b6b;
+
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --font-body: var(--font-schibsted), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  /* rejilla sutil de instrumento */
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--color-line) 55%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--color-line) 55%, transparent) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: center top;
+}
+
+/* grano/atmósfera por encima de la rejilla */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 500px at 80% -5%, color-mix(in srgb, var(--color-signal) 9%, transparent), transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, color-mix(in srgb, var(--color-alert) 6%, transparent), transparent 60%);
+}
+
+/* scanline ambiental muy tenue (textura de instrumento, no debe distraer) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0 3px,
+    color-mix(in srgb, #000 7%, transparent) 3px 4px
+  );
+  mix-blend-mode: overlay;
+}
+
+.mono { font-family: var(--font-mono); }
+.display { font-family: var(--font-display); }
+
+/* etiqueta técnica tipo consola */
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-line);
+  border-radius: 2px;
+}
+
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* === animaciones de instrumento (todas atenuadas por prefers-reduced-motion) === */
+
+/* línea de barrido vertical sobre el grafo del hero */
+@keyframes scan-y {
+  0%   { transform: translateY(-4%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(104%); opacity: 0; }
+}
+
+/* destello secuencial de las puertas del circuito (overlay sobre la base) */
+@keyframes gate-glow {
+  0%, 100% { opacity: 0; }
+  45%      { opacity: 1; }
+}
+
+/* pulso de mensaje viajando por una arista (dash en movimiento) */
+@keyframes msg-flow {
+  to { stroke-dashoffset: -240; }
+}
+
+/* pulso sutil de la fila de tamaño de máquina en la tabla (no pisa el fondo) */
+@keyframes row-pulse {
+  0%, 100% { box-shadow: inset 0 0 0 9999px transparent; }
+  50%      { box-shadow: inset 0 0 0 9999px color-mix(in srgb, var(--color-signal) 7%, transparent); }
+}
+
+/* latido suave de la alerta seleccionada (feed en vivo) */
+@keyframes alert-beat {
+  0%, 100% { box-shadow: inset 2px 0 0 color-mix(in srgb, var(--color-signal) 60%, transparent); }
+  50%      { box-shadow: inset 2px 0 0 var(--color-signal); }
+}
+
+/* aparición suave del panel al cambiar de alerta */
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* señuelo de spoofing: aparece, sostiene y se cancela de golpe */
+@keyframes decoy-cycle {
+  0%       { opacity: 0; transform: scaleX(0.2); }
+  12%      { opacity: 1; transform: scaleX(1); }
+  60%      { opacity: 1; transform: scaleX(1); }
+  64%      { opacity: 0; transform: scaleX(1); }
+  100%     { opacity: 0; transform: scaleX(1); }
+}
+
+/* desplazamiento del mid inducido por el señuelo */
+@keyframes mid-shift {
+  0%, 12%  { transform: translateY(0); }
+  55%      { transform: translateY(-22px); }
+  64%      { transform: translateY(-22px); }
+  72%      { transform: translateY(0); }
+  100%     { transform: translateY(0); }
+}
+
+/* ejecución real en el lado opuesto, justo tras la cancelación */
+@keyframes fill-flash {
+  0%, 64%  { opacity: 0; transform: scaleX(0.2); }
+  70%      { opacity: 1; transform: scaleX(1); }
+  86%      { opacity: 1; transform: scaleX(1); }
+  100%     { opacity: 0; transform: scaleX(1); }
+}
+
+/* trazado de líneas del chart (stroke-dashoffset -> 0) */
+@keyframes draw-line {
+  to { stroke-dashoffset: 0; }
+}
+
+/* aparición simple por opacidad (puntos del chart, etc.) */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* twinkle muy leve de la silueta-constelación del hero */
+@keyframes figure-twinkle {
+  0%, 100% { opacity: 0.2; }
+  50%      { opacity: 0.28; }
+}
+
+.anim-paused { animation-play-state: paused; }
+
+/* micro-interacción: elevación sutil de tarjetas */
+.card-hover {
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--color-signal) 45%, var(--color-line));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-signal) 20%, transparent),
+    0 12px 30px -18px color-mix(in srgb, var(--color-signal) 35%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
