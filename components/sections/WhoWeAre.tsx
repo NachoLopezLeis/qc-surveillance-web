@@ -33,7 +33,7 @@ export default function WhoWeAre() {
   return (
     <Section
       id="equipo"
-      index="06"
+      index="07"
       tag="Who we are"
       title={
         <>

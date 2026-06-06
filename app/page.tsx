@@ -19,10 +19,9 @@ export default function Page() {
       <Hero />
       <Problem />
       <WhyItsHard />
-      <HowItWorks />
       <Section
         id="features"
-        index="03.2"
+        index="03"
         tag="Feature construction"
         title={
           <>
@@ -42,6 +41,7 @@ export default function Page() {
           </div>
         </Reveal>
       </Section>
+      <HowItWorks />
       <InsideTheSketch />
       <AnalystExperience />
       <WhoWeAre />

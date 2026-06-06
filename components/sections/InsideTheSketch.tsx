@@ -7,7 +7,7 @@ export default function InsideTheSketch() {
   return (
     <Section
       id="sketch"
-      index="04"
+      index="05"
       tag="Inside the sketch"
       title={
         <>
@@ -25,7 +25,7 @@ export default function InsideTheSketch() {
       <Reveal>
         <div id="circuit-playground" className="mt-16 scroll-mt-24">
           <div className="mb-6 flex items-baseline gap-4 border-b border-line pb-4">
-            <span className="mono text-xs text-muted">04.1</span>
+            <span className="mono text-xs text-muted">05.1</span>
             <span className="tag">circuit playground</span>
           </div>
           <p className="mb-8 max-w-2xl text-base leading-relaxed text-muted">

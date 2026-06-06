@@ -8,7 +8,7 @@ export default function HowItWorks() {
   return (
     <Section
       id="metodo"
-      index="03"
+      index="04"
       tag="The method"
       title={
         <>
@@ -44,7 +44,7 @@ export default function HowItWorks() {
       {/* Dónde se vuelve real la ventaja: escalado de tamaño de máquina */}
       <Reveal>
         <div className="mt-12 flex items-baseline gap-4 border-b border-line pb-4">
-          <span className="mono text-xs text-muted">03.1</span>
+          <span className="mono text-xs text-muted">04.1</span>
           <span className="tag">quantum advantage · machine-size scaling</span>
         </div>
       </Reveal>

@@ -294,7 +294,7 @@ export default function Experiments({ animate = true }: { animate?: boolean }) {
   return (
     <div id="results">
       <div className="mb-6 flex items-baseline gap-4 border-b border-line pb-4">
-        <span className="mono text-xs text-muted">03.3</span>
+        <span className="mono text-xs text-muted">04.3</span>
         <span className="tag">what we actually measured</span>
       </div>
 

@@ -30,7 +30,7 @@ export default function AnalystExperience() {
   return (
     <Section
       id="consola"
-      index="05"
+      index="06"
       tag="A day as an analyst"
       title={
         <>
