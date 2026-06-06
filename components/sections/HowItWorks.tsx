@@ -2,6 +2,7 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import ControlledExperiment from "@/components/viz/ControlledExperiment";
 import AdvantageScaling from "@/components/viz/AdvantageScaling";
+import Experiments from "@/components/viz/Experiments";
 
 export default function HowItWorks() {
   return (
@@ -88,6 +89,13 @@ export default function HowItWorks() {
             It becomes real only where classical storage fails (<span className="mono">d ≈ 2⁵⁰</span>) AND the
             effective rank is genuinely high.
           </p>
+        </div>
+      </Reveal>
+
+      {/* Resultados medidos: paridad de detección + validación en hardware real */}
+      <Reveal>
+        <div className="mt-12">
+          <Experiments />
         </div>
       </Reveal>
     </Section>

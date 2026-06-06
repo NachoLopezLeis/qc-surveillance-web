@@ -2,6 +2,7 @@ const LINKS = [
   { href: "#problema", label: "Problem" },
   { href: "#why", label: "Why hard" },
   { href: "#metodo", label: "Method" },
+  { href: "#features", label: "Features" },
   { href: "#sketch", label: "Sketch" },
   { href: "#consola", label: "Console" },
   { href: "#equipo", label: "Team" },
