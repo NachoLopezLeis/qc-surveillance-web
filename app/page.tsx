@@ -10,6 +10,7 @@ import InsideTheSketch from "@/components/sections/InsideTheSketch";
 import AnalystExperience from "@/components/sections/AnalystExperience";
 import WhoWeAre from "@/components/sections/WhoWeAre";
 import Closing from "@/components/sections/Closing";
+import ProjectVideo from "@/components/ProjectVideo";
 import PaperFooter from "@/components/sections/PaperFooter";
 
 export default function Page() {
@@ -46,6 +47,15 @@ export default function Page() {
       <AnalystExperience />
       <WhoWeAre />
       <Closing />
+      <section
+        id="video"
+        data-section="video"
+        className="relative z-10 mx-auto w-full max-w-6xl px-6 py-24 md:py-32"
+      >
+        <Reveal>
+          <ProjectVideo />
+        </Reveal>
+      </section>
       <PaperFooter />
     </main>
   );
